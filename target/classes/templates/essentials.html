@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .navBar {
+            display: flex;
+            justify-content: space-between;
+        }
+        .navBar img {
+            margin-right: 6px;
+        }
+        .navBar .flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .WishList,
+        .cart {
+            margin-left: 4px;
+        }
+        .cart svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            stroke-width: 1.5;
+        }
+        .py-4 {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .shadow-lg {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .font-bold {
+            font-weight: bold;
+        }
+        .bg-slate-800 {
+            background-color: #1f2937;
+        }
+        .text-white {
+            color: #fff;
+        }
+
+        .product
+        {
+            justify-content: center;
+        }
+
+
+        .add-to-cart{
+            background-color: #b4201d;
+        }
+        #cart-screen{
+            background-color: beige;
+            position: fixed;
+    right: 0;
+    top: 55px;
+    width: 25%;
+    z-index: 999;         }
+
+    </style>
+</head>
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- Roboto font -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="../src/App.js" defer></script>
+    <title>Smart Farm/Insecticides</title>
+
+</head>
+
+<body class=" " style="background-image: url('https://farmingbase.com/wp-content/uploads/2020/12/Difference-Between-Primitive-Subsistence-Farming-And-Intensive-Subsistence-Farming-02.jpg');
+  background-repeat: no-repeat;
+  background-size:cover;">
+<nav class=" py-4 px-4   justify-between max-w-10 shadow-xl shadow-gray-300  mx-auto font-bold bg-black text-white">
+    <div class="navBar flex justify-between">
+        <!-- Right Container -->
+        <div class="flex  justify-between items-center">
+            <img src="Bard_Generated_Image.jpg" class="mx-10" width="40px" />
+            <ul class="flex space-x-4">
+                <a href="index.html">
+                    <li class="Home page ">Home</li>
+                </a>
+                <a href="insecticides.html">
+                    <li class=" ">Insecticides</li>
+                </a>
+                <a href="sell.html">
+                    <li class="">Sell</li>
+                </a>
+                <a href="consult.html">
+                    <li class=" ">Consult</li>
+                </a>
+            </ul>
+        </div>
+
+        <!-- Left Container -->
+        <div class=" items-center flex">
+            <!-- <input class="justify-right" placeholder="Search"
+                class="" value="" />  -->
+            <div class=" h-full flex m-1.3 ">
+
+                <input type="text" placeholder="Search for Product,Consult.....! " class="rounded-xl text-black ">
+
+            </div>
+
+            <a href="register.html">
+                <div class="WishList mx-4 flex">
+                    Profile
+                    <!-- <img src="https://cdn.onlinewebfonts.com/svg/img_202755.png" width="20px" /> -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                         stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M17.982 18.725A7.488 7.488 0 0012 15.75a7.488 7.488 0 00-5.982 2.975m11.963 0a9 9 0 10-11.963 0m11.963 0A8.966 8.966 0 0112 21a8.966 8.966 0 01-5.982-2.275M15 9.75a3 3 0 11-6 0 3 3 0 016 0z" />
+                    </svg>
+
+                </div>
+            </a>
+            <a href="login.html">
+                <div class="cart mx-4 flex">
+                    Cart
+                    <!-- <img src="https://www.freepnglogos.com/uploads/shopping-cart-png/shopping-cart-svg-png-icon-download-28.png"
+                    width="20px" /> -->
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                         stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                              d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                    </svg>
+
+                </div>
+            </a>
+        </div>
+    </div>
+</nav>
+<div class=" mt-[60px] flex items-center justify-center w-full bg-black-399">
+    <h1 class="text-4xl font-bold">OUR PRODUCTS</h1>
+</div>
+<!-- 1 st Row Cards-->
+<div class=" cardview flex justify-between items-center max-w-10 ">
+
+    <!--1st Card Contianer -->
+    <a href="../components/headtorch.html">
+        <div
+                class=" p-4 h-[450px] w-[300px] flex flex-col items-center rounded-2xl shadow-xl shadow-black  mx-auto my-16  ">
+
+            <!-- Image Container -->
+            <div class=" w-full h-3/4  rounded-lg  justify-center ">
+                <img
+                        src="https://images-na.ssl-images-amazon.com/images/I/61GrvO33NyL._SL1000_.jpg">
+            </div>
+            <div class="flex flex-col text-white">
+                <h3 class="text-lg font-bold flex justify-center ">headtorch</h3>
+                <h4 class="text-md flex justify-center  ">canwelum rechargeable head torch</h4>
+                <!-- Short Description -->
+                <h3 class="text-center  ">mainly used to provide a artifical light to framer at night/h3>
+                    <h5 class=" font-semibold text-center ">
+                        <div class="flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                                 viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                                 viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                                 viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                            </svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                                 viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                      d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                            </svg>
+                        </div>
+
+                    </h5>
+            </div>
+
+
+        </div>
+    </a>
+    <!-- 2nd card  -->
+    <a href="./farmer face scrub.html">
+        <div
+                class=" p-4 h-[450px] w-[300px] flex flex-col items-center rounded-2xl shadow-xl shadow-black  mx-auto my-16  ">
+
+            <!-- Image Container -->
+            <div class=" w-full h-3/4  rounded-lg  justify-center ">
+                <img
+                        src="https://th.bing.com/th/id/R.8bc499d336c0073539ce90fc524a5a11?rik=sExVV6Z%2f%2f6ypaQ&riu=http%3a%2f%2fwww.welshlavender.com%2fwp-content%2fuploads%2f2015%2f10%2fFARMERS-scrub.jpg&ehk=YttJGqEzTsf41T21b8841eUyjhTzj3mccUiJysuOmWw%3d&risl=&pid=ImgRaw&r=0" />
+                <!--  -->
+            </div>
+            <div class="flex flex-col text-white bg-transparent">
+                <h3 class="text-lg font-bold flex justify-center bg-transparent">
+                    farmer scrub
+                </h3>
+                <h4 class="text-md flex justify-center bg-transparent ">black bough ludlow</h4>
+                <!-- Short Description -->
+                <h3 class="text-center bg-transparent flex justify-between">black bough farmer face scrub is made in
+                    hills of mid wales.</h3>
+                <h5 class=" font-semibold text-center bg-transparent">
+                    <div class="flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                    </div>
+
+                </h5>
+            </div>
+
+
+        </div>
+    </a>
+    <!-- 3rd Container -->
+    <a href="./body face.html">
+        <div
+                class=" p-4 h-[450px] w-[300px] flex flex-col items-center rounded-2xl shadow-xl shadow-black  mx-auto my-16  ">
+
+            <!-- Image Container -->
+            <div class=" w-full h-3/4  rounded-lg  justify-center ">
+                <img src="https://i.pinimg.com/originals/e3/b1/ae/e3b1ae543c4c28cf457cb5b7cc2c6bae.png" />
+                <!--  -->
+            </div>
+            <div class="flex flex-col text-white bg-transparent py-4">
+                <h3 class="text-lg font-bold flex justify-center bg-transparent">
+                    Pegasus
+                </h3>
+                <h4 class="text-md flex justify-center bg-transparent ">Buncha farmers</h4>
+                <!-- Short Description -->
+                <h3 class="text-center bg-transparent ">buncha farmers is a soap manufacturing company which
+                    provides farmer with some of naturally made soaps.</h3>
+                <h5 class=" font-semibold text-center bg-transparent">
+                    <div class="flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                    </div>
+
+                </h5>
+            </div>
+
+
+        </div>
+    </a>
+</div>
+
+<!-- 2nd Row Cards -->
+<div class=" cardview flex justify-between items-center max-w-10 bg-transparent">
+
+    <!--2(1st)Card Contianer -->
+    <a href="./tractor engine oil.html">
+        <div
+                class=" p-4 h-[450px] w-[300px] flex flex-col items-center rounded-2xl shadow-xl shadow-black  mx-auto my-16  ">
+
+            <!-- Image Container -->
+            <div class=" w-3/4 h-3/4  rounded-lg  justify-center ">
+                <img src="https://5.imimg.com/data5/JW/OC/MY-41130216/servo-tractor-engine-oil-500x500.jpg" />
+                <!--  -->
+            </div>
+            <div class="flex flex-col text-white bg-transparent">
+                <h3 class="text-lg font-bold flex justify-center bg-transparent">servo</h3>
+                <h4 class="text-md flex justify-center bg-transparent ">TATA</h4>
+                <!-- Short Description -->
+                <h3 class="text-center bg-transparent ">servo is company providing engine oil for tractor</h3>
+                <h5 class=" font-semibold text-center bg-transparent">
+                    <div class="flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                    </div>
+
+                </h5>
+            </div>
+
+
+        </div>
+    </a>
+    <!-- 2(2nd)Card View -->
+    <a href="./hydraulic fluid.html">
+        <div
+                class=" p-4 h-[450px] w-[300px] flex flex-col items-center rounded-2xl shadow-xl shadow-black  mx-auto my-16  ">
+
+            <!-- Image Container -->
+            <div class=" w-3/4 h-3/4  rounded-lg  justify-center ">
+                <img src="https://i5.walmartimages.ca/images/Enlarge/039/811/999999-RO550039811.jpg" />
+                <!--  -->
+            </div>
+            <div class="flex flex-col text-white bg-transparent">
+                <h3 class="text-lg font-bold flex justify-center bg-transparent">hydraulic fuild</h3>
+                <h4 class="text-md flex justify-center bg-transparent ">shell</h4>
+                <!-- Short Description -->
+                <h3 class="text-center bg-transparent ">A hydraulic fluid or hydraulic liquid is the medium by which
+                    power is transferred in hydraulic machinery.</h3>
+                <h5 class=" font-semibold text-center bg-transparent">
+                    <div class="flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                    </div>
+
+                </h5>
+            </div>
+
+
+        </div>
+    </a>
+    <!-- 2(3rd) Card view -->
+    <a href="">
+        <div
+                class=" p-4 h-[450px] w-[300px] flex flex-col items-center rounded-2xl shadow-xl shadow-black  mx-auto my-16  ">
+
+            <!-- Image Container -->
+            <div class=" w-full h-3/4  rounded-lg  justify-center ">
+                <img
+                        src="https://th.bing.com/th/id/R.e32a99fee135f2a88cc4987381b9a36c?rik=xs3jSsPV4%2fwS7g&riu=http%3a%2f%2fwww.tractordumper.com%2fphoto%2fps25580079-1_or_2_rows_farm_tractor_implements_ditching_machine_80_350mm_working_depth.jpg&ehk=mqUkLGbBomPGBU73iUCB39Q7hCMa0iz5YZOFX3BG4Do%3d&risl=&pid=ImgRaw&r=0" />
+                <!--  -->
+            </div>
+            <div class="flex flex-col text-white bg-transparent">
+                <h3 class="text-lg font-bold flex justify-center bg-transparent"> Ditching Machine</h3>
+                <h4 class="text-md flex justify-center bg-transparent ">unlight</h4>
+                <!-- Short Description -->
+                <h3 class="text-center bg-transparent ">It can be used for ditching and ridging when planting
+                    potato,Chinese onion and so on</h3>
+                <h5 class=" font-semibold text-center bg-transparent">
+                    <div class="flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                    </div>
+
+                </h5>
+            </div>
+
+
+        </div>
+    </a>
+</div>
+
+<!-- 3 rd Row Card -->
+<div class=" cardview flex justify-between items-center max-w-10 bg-transparent">
+
+    <!--3(1st)Card Contianer -->
+    <a href="">
+        <div
+                class=" p-4 h-[450px] w-[300px] flex flex-col items-center rounded-2xl shadow-xl shadow-black  mx-auto my-16  ">
+
+            <!-- Image Container -->
+            <div class=" w-full h-3/4  rounded-lg  justify-center ">
+                <img src="https://images-na.ssl-images-amazon.com/images/I/81NKzEV0+2L.jpg" />
+                <!--  -->
+            </div>
+            <div class="flex flex-col text-white bg-transparent">
+                <h3 class="text-lg font-bold flex justify-center bg-transparent">storing crates</h3>
+                <h4 class="text-md flex justify-center bg-transparent ">aristo</h4>
+                <!-- Short Description -->
+                <h3 class="text-center bg-transparent ">aristo is a company which provides storing crates for
+                    farmers to store there vegtable,fruits and many other products.</h3>
+                <h5 class=" font-semibold text-center bg-transparent">
+                    <div class="flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                    </div>
+
+                </h5>
+            </div>
+
+
+        </div>
+    </a>
+    <!-- 3(2nd) Card View -->
+    <a href="">
+        <div
+                class=" p-4 h-[450px] w-[300px] flex flex-col items-center rounded-2xl shadow-xl shadow-black  mx-auto my-16  ">
+
+            <!-- Image Container -->
+            <div class=" w-full h-3/4  rounded-lg  justify-center ">
+                <img src="https://www.bighaat.com/cdn/shop/products/virotak_800x.jpg?v=1678692417" />
+                <!--  -->
+            </div>
+            <div class="flex flex-col text-white bg-transparent">
+                <h3 class="text-lg font-bold flex justify-center bg-transparent">Virtako</h3>
+                <h4 class="text-md flex justify-center bg-transparent ">Syngenta</h4>
+                <!-- Short Description -->
+                <h3 class="text-center bg-transparent ">Virtako new generation insecticide protection from Stem
+                    Borer in Rice&Corn Shoot Borer in Sugarcane</h3>
+                <h5 class=" font-semibold text-center bg-transparent">
+                    <div class="flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                    </div>
+
+                </h5>
+            </div>
+
+
+        </div>
+    </a>
+    <!-- 3(3rd)Card View -->
+    <a href="">
+        <div
+                class=" p-4 h-[450px] w-[300px] flex flex-col items-center rounded-2xl shadow-xl shadow-black  mx-auto my-16  ">
+
+            <!-- Image Container -->
+            <div class=" w-full h-3/4  rounded-lg  justify-center ">
+                <img src="https://th.bing.com/th?id=OPA.Ns7rFwwamvsQEQ474C474&w=592&h=550&o=5&dpr=1.3&pid=21.1" />
+                <!--  -->
+            </div>
+            <div class="flex flex-col text-white bg-transparent">
+                <h3 class="text-lg font-bold flex justify-center bg-transparent">face wash</h3>
+                <h4 class="text-md flex justify-center bg-transparent ">Bella vita organic</h4>
+                <!-- Short Description -->
+                <h3 class="text-center bg-transparent ">
+                    used to keep the face clean from germs and make farmers feel fresh in hot summer after working
+                    in farm a face wash made from natural extract
+                </h3>
+                <h5 class=" font-semibold text-center bg-transparent">
+                    <div class="flex items-center justify-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-yellow-500" fill="none"
+                             viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                  d="M12 2l3.09 6.318 6.902.998-4.998 4.87 1.18 6.875L12 17.347l-6.094 3.014 1.18-6.875L2.008 9.316l6.902-.998L12 2z" />
+                        </svg>
+                    </div>
+
+                </h5>
+            </div>
+        </div>
+    </a>
+</div>
+</body>
+
+</html>

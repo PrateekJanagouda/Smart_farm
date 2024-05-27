@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en"  >
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Upload Form</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script >
+
+        window.onload = function() {
+            var urlParams = new URLSearchParams(window.location.search);
+            var message = urlParams.get('message');
+            if (message) {
+                alert(decodeURIComponent(message));
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-gray-100">
+<div class="container mx-auto p-8">
+    <div class="message" >
+        [[${message}]]
+    </div>
+
+    <h1 class="text-3xl font-bold mb-4">Upload Product</h1>
+    <form id="productForm" class="bg-white p-6 rounded shadow-md"  method="post"
+                role="form">
+        <div class="mb-4">
+            <label for="productName" class="block text-gray-700 font-bold mb-2">Product Name:</label>
+            <input  type="text" id="productName" name="productName"
+                   class="w-full border border-gray-400 p-2 rounded" required />
+        </div>
+        <div class="mb-4">
+            <label for="productDescription" class="block text-gray-700 font-bold mb-2">Product Description:</label>
+            <textarea  id="productDescription" name="productDescription"
+                       class="w-full border border-gray-400 p-2 rounded h-32" required></textarea>
+        </div>
+        <div class="mb-4">
+            <label for="productPrice" class="block text-gray-700 font-bold mb-2">Product Price:</label>
+            <input  type="number" id="productPrice" name="productPrice"
+                    class="w-full border border-gray-400 p-2 rounded" required />
+        </div>
+        <div class="mb-4">
+            <label for="productImage" class="block text-gray-700 font-bold mb-2">Product Image:</label>
+            <input   type="file" id="productImage" name="productImage"
+                    accept=".jpg,.jpeg,.png,.gif,.bmp,.tiff,.webp,.svg,.ico,.jfif,.heif,.indd,.ai,.eps,.pdf,.psd,.tga,.raw" required />
+        </div>
+        <!--        <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Upload Product</button>-->
+
+        <button type="submit" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">Upload Product</button>
+    </form>
+</div>
+
+
+</body>
+</html>

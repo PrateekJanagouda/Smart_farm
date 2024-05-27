@@ -1,0 +1,176 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <style>
+        .navBar {
+            display: flex;
+            justify-content: space-between;
+        }
+        .navBar img {
+            margin-right: 6px;
+        }
+        .navBar .flex {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .WishList,
+        .cart {
+            margin-left: 4px;
+        }
+        .cart svg {
+            width: 1.5rem;
+            height: 1.5rem;
+            stroke-width: 1.5;
+        }
+        .py-4 {
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+        }
+        .px-4 {
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+        .shadow-lg {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .font-bold {
+            font-weight: bold;
+        }
+        .bg-slate-800 {
+            background-color: #1f2937;
+        }
+        .text-white {
+            color: #fff;
+        }
+
+        .product
+        {
+            justify-content: center;
+        }
+
+
+        .add-to-cart{
+            background-color: #b4201d;
+        }
+        #cart-screen{
+            background-color: beige;
+            position: fixed;
+    right: 0;
+    top: 55px;
+    width: 25%;
+    z-index: 999;         }
+
+    </style>
+</head>
+
+<body class>
+<nav class="py-4 px-4 justify-between shadow-lg shadow-pink-100 mx-auto font-bold bg-slate-800 text-white">
+    <div class="navBar flex justify-between">
+        <!-- Right side of nav bar  -->
+        <div class="flex justify-between items-center">
+            <!-- Logo -->
+            <img src="https://imagetolink.com/ib/1NOxkKhdky" alt="Logo" class="mx-4 rounded-full" width="50px"/>
+            <!-- Links -->
+            <div class="flex space-x-4">
+                <a href="index.html"><div class="Home page">Home</div></a>
+                <a href="insecticides.html"><div class="Insecticides">Insecticides</div></a>
+                <a href=sell.html><div class="Sell">Sell</div></a>
+                <a href="consult.html"><div class="Consult">Consult</div></a>
+            </div>
+        </div>
+        <!-- Left side of nav bar  -->
+        <div class="items-center flex">
+            <!-- Search Input -->
+            <div class="h-full flex m-1.3">
+                <input type="text" placeholder="Search for Product,Consult.....! " class="rounded-xl text-black"/>
+            </div>
+            <!-- Profile and Cart -->
+            <a href="">
+                <div class="WishList mx-4 flex">Profile</div>
+            </a>
+            <button id="show-cart">
+                <div class="cart mx-4 flex">
+                    Cart
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+                    </svg>
+                </div>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<div class="container mx-auto p-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-4">
+        <!-- Doctor 1 -->
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+            <img src="https://img.freepik.com/free-photo/veterinarian-checking-dog-medium-shot_23-2149143871.jpg?size=626&ext=jpg&ga=GA1.2.1870868672.1689840411&semt=ais" alt="Dr. John Smith" class="w-full h-auto">
+            <div class="p-4">
+                <h2 class="text-lg font-semibold mb-2">Dr. John Smith</h2>
+                <p><strong>Phone Number:</strong> +1 123-456-7890</p>
+                <p><strong>Email:</strong> dr.john@example.com</p>
+                <p><strong>Address:</strong> 123 Main Street, Cityville, Country</p>
+                <p><strong>Specialization:</strong> Small Animals</p>
+            </div>
+        </div>
+
+        <!-- Doctor 2 -->
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+            <img src="https://img.freepik.com/premium-photo/portrait-mature-male-veterinarian-smiling-camera-while-sitting-examination-table-with-doberman-dog-vet-clinic-copy-space_633611-4980.jpg?size=626&ext=jpg&ga=GA1.2.1870868672.1689840411&semt=ais" alt="Dr. Jane Doe" class="w-full h-auto">
+            <div class="p-4">
+                <h2 class="text-lg font-semibold mb-2">Dr. Jane Doe</h2>
+                <p><strong>Phone Number:</strong> +1 987-654-3210</p>
+                <p><strong>Email:</strong> dr.jane@example.com</p>
+                <p><strong>Address:</strong> 456 Elm Street, Townsville, Country</p>
+                <p><strong>Specialization:</strong> Exotic Animals</p>
+            </div>
+        </div>
+        <!-- Doctor 3 -->
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+            <img src="https://th.bing.com/th/id/OIP.ekLXVoswLL2EhkB7pr2N2wHaFu?pid=ImgDet&rs=1" alt="Dr. Emily Johnson" class="w-full h-auto">
+            <div class="p-4">
+                <h2 class="text-lg font-semibold mb-2">Dr. Emily Johnson</h2>
+                <p><strong>Phone Number:</strong> +1 555-123-4567</p>
+                <p><strong>Email:</strong> dr.emily@example.com</p>
+                <p><strong>Address:</strong> 789 Oak Avenue, Villagetown, Country</p>
+                <p><strong>Specialization:</strong> Large Animals</p>
+            </div>
+        </div>
+
+        <!-- Doctor 4 -->
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+            <img src="https://images.pexels.com/photos/6235663/pexels-photo-6235663.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Dr. Michael Williams" class="w-full h-auto">
+            <div class="p-4">
+                <h2 class="text-lg font-semibold mb-2">Dr. Michael Williams</h2>
+                <p><strong>Phone Number:</strong> +1 555-987-6543</p>
+                <p><strong>Email:</strong> dr.michael@example.com</p>
+                <p><strong>Address:</strong> 567 Maple Street, Suburbia, Country</p>
+                <p><strong>Specialization:</strong> Avian Medicine</p>
+            </div>
+        </div>
+
+        <!-- Doctor 5 -->
+        <div class="bg-white shadow-md rounded-lg overflow-hidden">
+            <img src="https://th.bing.com/th/id/OIP.Pxaj2myIUvJPbuw1udDS9wHaE7?pid=ImgDet&rs=1" alt="Dr. Sarah Brown" class="w-full h-auto">
+            <div class="p-4">
+                <h2 class="text-lg font-semibold mb-2">Dr. Sarah Brown</h2>
+                <p><strong>Phone Number:</strong> +1 555-876-5432</p>
+                <p><strong>Email:</strong> dr.sarah@example.com</p>
+                <p><strong>Address:</strong> 890 Cedar Lane, Countryside, Country</p>
+                <p><strong>Specialization:</strong> Feline Medicine</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+
+</html>
